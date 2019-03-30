@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 
 @Controller
-@RequestMapping("users")
+@RequestMapping("users") //Esimene API tase - ressurss
 public class ExampleController {
-
+    //Saab andmed, mida töötlesime. Võtab servisest. Saadab kõik andmed ui-sse edasi.
     @Resource
     UserService service;
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id}") // model on timeleaf asi.
     public String hello(Model model, @PathVariable Long id) {
         User user = service.getUserById(id);
-        model.addAttribute(user);
+        model.addAttribute(user); //seda mudelit näidatakse html lehel
         return "index";
     }
 

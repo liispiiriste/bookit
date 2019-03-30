@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+    //Pärib andmebaasist andmeid
+    //JPA Oskab ise eos mingeid päringuid teha.
+    //User findByAgeIs(int age);
 }

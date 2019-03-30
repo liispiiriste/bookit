@@ -16,3 +16,4 @@ INSERT INTO user (name, age)
 VALUES ('raiko', 15);
 INSERT INTO user (name, age)
 VALUES ('reiko', 15);
+
