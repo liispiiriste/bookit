@@ -1,6 +1,7 @@
 package ee.taltech.spring.bookit.controller;
 
 import ee.taltech.spring.bookit.domain.Todo;
+import ee.taltech.spring.bookit.domain.TodoValuesDto;
 import ee.taltech.spring.bookit.service.TodoService;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -39,5 +40,20 @@ public class TodoController {
         List<Todo> allTodos = service.getAllTodos();
         model.addAttribute("todos", allTodos);
         return "todoList";
+    }
+
+    @GetMapping("change")
+    public String getChangeForm(Model model) {
+        TodoValuesDto todoValuesDto = new TodoValuesDto();
+        todoValuesDto.setTodos(service.getAllTodos());
+        model.addAttribute("form", todoValuesDto);
+        return "changeTodos";
+    }
+    @PostMapping("change")
+    public String saveChangeForm(Model model, @ModelAttribute TodoValuesDto dto) {
+        service.saveAll(dto.getTodos());
+
+        model.addAttribute("form", dto);
+        return "changeTodos";
     }
 }

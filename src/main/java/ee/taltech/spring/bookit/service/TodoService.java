@@ -23,4 +23,7 @@ public class TodoService {
     public Todo addTodo(Todo todo) {
         return repo.save(todo);
     }
+    public void saveAll(List<Todo> todos) {
+        repo.saveAll(todos);
+    }
 }
